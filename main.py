@@ -1,34 +1,32 @@
 #Mattox J
 #Jenkins - AM2
 #A simple Streamlit app to calculate trigonometric functions based on user input.
-#This site is accessible at: https://mattoxj-jenkins-trig-calculator-streamlit-app-4w3s5g.streamlit.app/
+#This site is accessible at: https://fundamental-trig-identities.streamlit.app/
+#If prompted, click "Yes" to wake the site.
 import math
 import streamlit as st
 
 def calc_trig_values(sin_value):
-    try:
-        sin=sin_value
-    except:
-        sin=False
+    sin = sin_value
     try:
         cos=math.sqrt(1-sin**2)
     except:
         cos=False
     try:
         tan=sin/cos
-    except:
+    except ZeroDivisionError:
         tan=False
     try:
         csc=1/sin
-    except:
+    except ZeroDivisionError:
         csc=False
     try:
         sec=1/cos
-    except:
+    except ZeroDivisionError:
         sec=False
     try:
         cot=cos/sin
-    except:
+    except ZeroDivisionError:
         cot=False
     values = [["sin(t)", sin], ["cos(t)", cos], ["tan(t)", tan], ["csc(t)", csc], ["sec(t)", sec], ["cot(t)", cot]]
     return values
